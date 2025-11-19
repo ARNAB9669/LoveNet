@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LoveNet — Secret Love Messages, Powered by Chemistry</title>
+    <!-- Favicon / Browser Tab -->
+    <link rel="icon" type="image/png" sizes="192x192" href="ass/favicon192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="ass/favicon512.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="ass/favicon192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="ass/favicon512.png">
+    <!-- optional root fallback if you add /favicon.ico when deployed -->
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Theme Color for Mobile Chrome -->
+    <meta name="theme-color" content="#000000">
+
+    <!-- Primary Meta -->
+    <meta name="description"
+        content="LoveNet lets couples encrypt and decrypt private messages using a unique chemistry-based cipher. Simple, fast, secure, and leaves no trace.">
+    <meta name="keywords"
+        content="LoveNet, love cipher, message encoder, secret chat, chemistry code, lovers decode, encrypted love messages, private messaging tool">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="CodeVelly">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="LoveNet — Chemistry-Based Secret Message Encoder">
+    <meta property="og:description"
+        content="Send secret love messages using a chemistry-inspired encryption system. No tracking. No storage. Just pure privacy.">
+    <meta property="og:url" content="https://lovenet.codevelly.in/">
+    <meta property="og:image" content="https://lovenet.codevelly.in/Assests/lovenet-banner.png">
+
+    <!-- Twitter Meta -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LoveNet — Encode & Decode Love Messages">
+    <meta name="twitter:description" content="A cute, clever tool to encrypt and decrypt private love messages.">
+    <meta name="twitter:image" content="https://lovenet.codevelly.in/Assests/lovenet-banner.png">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://lovenet.codevelly.in/">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" href="/Assests/icon.png">
+    <link rel="apple-touch-icon" href="/Assests/icon512.png">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "LoveNet",
+      "url": "https://lovenet.codevelly.in/",
+      "image": "https://lovenet.codevelly.in/Assests/lovenet-banner.png",
+      "author": {
+        "@type": "Organization",
+        "name": "CodeVelly"
+      },
+      "applicationCategory": "Utility",
+      "operatingSystem": "All",
+      "description": "LoveNet allows lovers to encode and decode private love messages using a chemistry-themed cipher. No data stored.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0"
+      }
+    }
+    </script>
+
+    <!-- Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3HKL52VG3Z"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-3HKL52VG3Z');
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <h1>LOVE With Chemistry</h1><span>
+            <h2>🥰</h2>
+        </span>
+    </nav>
+
+    <div class="main">
+
+        <div class="fuk">
+            <h1>Encode</h1>
+            <div class="fuk_left">
+                <input type="text" id="encodeInput" placeholder="I ❤️ U">
+            </div>
+            <div class="fuk_right">
+                <button id="encodeBtn">Encrypt</button>
+            </div>
+            <div class="spem">
+                <h1>OUTPUT</h1>
+                <div class="vrun">
+                    <h3 id="encodeOutput">HeHeHgposhAccsfrPo8asCsSc==</h3>
+                </div>
+
+                <button class="butt" id="copyencode" onclick="copyText('encodeOutput', this)">Copy</button>
+            </div>
+        </div>
+
+        <div class="sin">
+            <h1>Decode</h1>
+            <div class="sin_left">
+                <input type="text" id="decodeInput" placeholder="HeHeHgposhAccsfrPo8asCsSc==">
+            </div>
+            <div class="sin_right">
+                <button id="decodeBtn">Decrypt</button>
+            </div>
+            <div class="spem">
+                <h1>OUTPUT</h1>
+                <div class="vrun">
+                    <h3 id="decodeOutput">I ❤️ U</h3>
+                </div>
+
+                <button class="butt" id="copydecode" onclick="copyText('decodeOutput', this)">Copy</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="privacyPopup" style="
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #111827;
+    padding: 20px 25px;
+    width: 320px;
+    border-radius: 10px;
+    color: white;
+    z-index: 9999;
+    text-align: center;
+    display: none;
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+">
+        <h3 style="margin-bottom: 10px; font-size: 20px;">Privacy Notice 🔒</h3>
+        <p style="font-size: 14px;">
+            Your chat history is not saved. Nothing is stored.
+            Everything stays on your device.
+        </p>
+        <button id="closePrivacyPopup" style="
+        margin-top: 15px;
+        padding: 8px 16px;
+        background: #2563eb;
+        border: none;
+        border-radius: 6px;
+        color: white;
+        cursor: pointer;
+    ">Got It</button>
+    </div>
+
+    <footer>
+        ©codevelly 2025 all rights reserved
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
