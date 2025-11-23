@@ -32,6 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Input is empty 😳");
             return;
         }
+        if (EI.value.trim().length < 2) {
+            alert("Not goonna work 😂");
+            return;
+        }
 
         EO.innerText = "Encoding... Please wait.";
 
@@ -50,6 +54,10 @@ document.addEventListener("DOMContentLoaded", () => {
     DCB.addEventListener("click", async () => {
         if (!DI.value.trim()) {
             alert("Input is empty 😳");
+            return;
+        }
+        if (DI.value.trim().length < 2) {
+            alert("Not goonna work 😂");
             return;
         }
 
