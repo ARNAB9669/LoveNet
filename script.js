@@ -3,8 +3,37 @@ localStorage.removeItem("loveNetPrivacyShown")
 
 
 document.addEventListener("DOMContentLoaded", () => {
+    // ==================== COPY BUTTON ====================
+    window.copyText = function (id, buttonElement) {
+        const el = document.getElementById(id);
+        const text = el ? el.textContent : "";
 
-   
+        if (!text.trim()) {
+            alert("Nothing to copy.");
+            return;
+        }
+
+        navigator.clipboard.writeText(text)
+            .then(() => {
+                const originalText = buttonElement.innerText;
+                const originalBorder = buttonElement.style.borderColor;
+                const originalColor = buttonElement.style.color;
+
+                buttonElement.innerText = "Copied!";
+                buttonElement.style.borderColor = "#4ade80";
+                buttonElement.style.color = "#4ade80";
+
+                setTimeout(() => {
+                    buttonElement.innerText = originalText;
+                    buttonElement.style.borderColor = originalBorder;
+                    buttonElement.style.color = originalColor;
+                }, 1200);
+            })
+            .catch(() => {
+                alert("Copy failed. Browser blocked it.");
+            });
+    };
+
 
     // ==================== PRIVACY POPUP ====================
     const popup = document.getElementById("privacyPopup");
